@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  vue-playground:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: oligety/vue-playground:latest
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - web-network
+
+networks:
+  web-network:
+    driver: bridge
